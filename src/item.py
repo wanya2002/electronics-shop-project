@@ -46,7 +46,7 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls):
-        with open('items.csv', newline='') as csvfile:
+        with open ('C:\\Users\\HP\\PycharmProjects\\electronics-shop-project\\src\\items.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 cls.all.append(cls(row['name'], row['price'], row['quantity']))
@@ -55,6 +55,7 @@ class Item:
     @staticmethod
     def string_to_number(str):
         return int(float(str))
+
 
 
 
