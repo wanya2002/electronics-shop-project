@@ -1,5 +1,6 @@
 import csv
 
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -40,13 +41,13 @@ class Item:
 
     @name.setter
     def name(self, name):
-        self.__name = name
-        if len(name) > 10:
+       if len(name) > 10:
             raise Exception('Длина товара превышает 10 символов')
+       self.__name = name
 
     @classmethod
     def instantiate_from_csv(cls):
-        with open ('C:\\Users\\HP\\PycharmProjects\\electronics-shop-project\\src\\items.csv', newline='') as csvfile:
+        with open ('src\items.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 cls.all.append(cls(row['name'], row['price'], row['quantity']))
@@ -55,11 +56,6 @@ class Item:
     @staticmethod
     def string_to_number(str):
         return int(float(str))
-
-
-
-
-
 
 
 
