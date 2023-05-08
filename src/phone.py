@@ -1,4 +1,4 @@
-from src.item import Item
+
 
 class Phone:
     """новый класс Phone"""
@@ -15,12 +15,14 @@ class Phone:
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity}, {self.number_of_sim})"
 
     def __add__(self, other):
-        if isinstance(other, Item) or isinstance(other, Phone):
+        if isinstance(other, Phone):
             return self.quantity + other.quantity
 
     @property
     def name(self):
         return self.__name
+
+
 
 
 

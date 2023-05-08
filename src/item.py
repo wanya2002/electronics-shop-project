@@ -28,6 +28,7 @@ class Item:
         return f'{self.__name}'
 
     def __add__(self, other):
+        if isinstance(other, Phone):
             return self.quantity + other.quantity
 
 
@@ -67,7 +68,7 @@ class Item:
     def string_to_number(str):
         return int(float(str))
 
-ekz = Phone('jhg', 54.6, 5, 9)
+
 
 
 
