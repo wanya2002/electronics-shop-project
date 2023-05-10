@@ -29,7 +29,10 @@ class Item:
 
     def __add__(self, other):
         if isinstance(other, Phone):
+            return other.quantity + self.quantity
+        elif isinstance(other, Item):
             return self.quantity + other.quantity
+
 
 
     def calculate_total_price(self) -> float:
@@ -67,6 +70,13 @@ class Item:
     @staticmethod
     def string_to_number(str):
         return int(float(str))
+
+ekz = Item('sony', 56.2, 8)
+ekz1 = Item('samsung', 568.5, 5)
+ekz2 = Phone('nokia', 456.5, 4, 6)
+
+print(ekz + ekz1)
+print(ekz1 + ekz2)
 
 
 
