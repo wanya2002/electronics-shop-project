@@ -35,22 +35,24 @@ def test_str():
       assert str(item1) == 'Смартфон'
 
 def test_str_phone():
-      phone1 = Phone("iPhone 14", 120_000, 5, 2)
+      phone1 = Phone("iPhone 14", 120000, 5, 2)
       assert str(phone1) == 'iPhone 14'
 
 def test_repr_phone():
-      phone1 = Phone("iPhone 14", 120_000, 5, 2)
+      phone1 = Phone("iPhone 14", 120000, 5, 2)
       assert repr(phone1) == "Phone('iPhone 14', 120000, 5, 2)"
 
 def test_init_phone():
-      phone1 = Phone("iPhone 14", 120_000, 5, 2)
+      phone1 = Phone("iPhone 14", 120000, 5, 2)
       assert phone1.number_of_sim == 2
 
 def test_add():
-      phone1 = Phone("iPhone 14", 120_000, 5, 2)
+      phone1 = Phone("iPhone 14", 120000, 5, 2)
       item1 = Item("Смартфон", 10000, 20)
       assert item1 + phone1 == 25
       assert phone1 + phone1 == 10
+      assert phone1 + item1 == 25
+      assert item1 + item1 == 40
 
 
 

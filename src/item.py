@@ -1,5 +1,4 @@
 import csv
-from src.phone import Phone
 
 
 class Item:
@@ -28,10 +27,9 @@ class Item:
         return f'{self.__name}'
 
     def __add__(self, other):
-        if isinstance(other, Phone):
+        if isinstance(other, Item):
             return other.quantity + self.quantity
-        elif isinstance(other, Item):
-            return self.quantity + other.quantity
+
 
 
 
@@ -71,12 +69,6 @@ class Item:
     def string_to_number(str):
         return int(float(str))
 
-ekz = Item('sony', 56.2, 8)
-ekz1 = Item('samsung', 568.5, 5)
-ekz2 = Phone('nokia', 456.5, 4, 6)
-
-print(ekz + ekz1)
-print(ekz1 + ekz2)
 
 
 
