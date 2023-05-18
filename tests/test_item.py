@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 from src.item import Item
 from src.phone import Phone
+from src.keyboard import KeyBoard
 
 def test_calculate_total_price():
       item = Item('samsung', 450, 14)
@@ -54,6 +55,19 @@ def test_add():
       assert phone1 + item1 == 25
       assert item1 + item1 == 40
 
+
+def test_KeyBoard():
+      kb = KeyBoard('Dark Project KD87A', 9600, 5)
+      assert str(kb) == "Dark Project KD87A"
+
+def test_KeyBoard_TransMixin():
+      kb = KeyBoard('Dark Project KD87A', 9600, 5)
+      assert str(kb.language) == "EN"
+
+def test_KeyBoard_change_lang():
+      kb = KeyBoard('Dark Project KD87A', 9600, 5)
+      kb.change_lang()
+      assert str(kb.language) == "RU"
 
 
 
