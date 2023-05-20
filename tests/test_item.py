@@ -68,6 +68,9 @@ def test_KeyBoard_change_lang():
       kb = KeyBoard('Dark Project KD87A', 9600, 5)
       kb.change_lang()
       assert str(kb.language) == "RU"
+      kb.change_lang().change_lang()
+      assert str(kb.language) == "RU"
+
 
 
 
