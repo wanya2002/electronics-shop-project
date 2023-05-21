@@ -1,5 +1,5 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
-from src.item import Item
+from src.item import Item, InstantiateCSVError
 from src.phone import Phone
 from src.keyboard import KeyBoard
 
@@ -70,6 +70,14 @@ def test_KeyBoard_change_lang():
       assert str(kb.language) == "RU"
       kb.change_lang().change_lang()
       assert str(kb.language) == "RU"
+
+def test_instantiate_from_csv_exc():
+      try:
+         Item.instantiate_from_csv()
+      except FileNotFoundError as test:
+            assert test
+      except InstantiateCSVError as test1:
+            assert test1
 
 
 
