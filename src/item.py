@@ -70,10 +70,14 @@ class Item(InstantiateCSVError):
            with open ('..\src\items.csv', newline='') as csvfile:
                reader = csv.DictReader(csvfile)
                for row in reader:
-                   if len(row) < 3:
-                       raise InstantiateCSVError
-                   else:
-                       cls.all.append(cls(row['name'], row['price'], row['quantity']))
+                   try:
+                      if len(row) < 3:
+                          raise InstantiateCSVError
+                      else:
+                          cls.all.append(cls(row['name'], row['price'], row['quantity']))
+                   except InstantiateCSVError:
+                       print('Файл item.csv поврежден_')
+                       quit()
            return cls.all
         except FileNotFoundError:
             print('FileNotFoundError: Отсутствует файл item.csv')
@@ -85,7 +89,7 @@ class Item(InstantiateCSVError):
 
 
 
-
+Item.instantiate_from_csv()
 
 
 
