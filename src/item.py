@@ -89,7 +89,7 @@ class Item(InstantiateCSVError):
 
 
 
-Item.instantiate_from_csv()
+
 
 
 
